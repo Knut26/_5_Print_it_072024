@@ -12,6 +12,7 @@
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
+
 html,
 body,
 div,
@@ -100,6 +101,7 @@ video {
   font-size: 100%;
   vertical-align: baseline;
 }
+
 /* HTML5 display-role reset for older browsers */
 article,
 aside,
@@ -114,38 +116,47 @@ nav,
 section {
   display: block;
 }
+
 body {
   line-height: 1;
 }
+
 ol,
 ul {
   list-style: none;
 }
+
 blockquote,
 q {
   quotes: none;
 }
+
 blockquote:before,
 blockquote:after,
 q:before,
 q:after {
   content: none;
 }
+
 table {
   border-collapse: collapse;
   border-spacing: 0;
 }
+
 body {
 }
+
 section {
   margin-block: 6em;
 }
+
 h2 {
   font-family: "Roboto Slab", sans-serif;
   font-size: 40px;
   font-weight: 900;
   margin-block: 1em;
 }
+
 h3 {
   font-family: "Roboto Slab", sans-serif;
   font-size: 22px;
@@ -159,16 +170,19 @@ li {
   font-size: 16px;
   line-height: 26px;
 }
+
 .container {
   max-width: 1440px;
   margin-inline: auto;
   padding-inline: 5%;
 }
+
 header {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
+
 .logo {
   width: 260px;
   margin-block: 10px;
@@ -182,19 +196,20 @@ header {
   color: white;
   text-decoration: none;
 }
+
 .devis {
   background-color: var(--secondary-color);
 }
 
 #banner {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
   width: 100%;
   min-height: 470px;
   position: relative;
 }
+
 .banner-img {
   position: absolute;
   width: 100%;
@@ -203,23 +218,28 @@ header {
   object-fit: cover;
   object-position: center;
 }
+
 /* Code CSS en prévision de l'ajout d'un carousel pour la bannière */
 /* Gestion des fleches du carrousel */
 #banner .arrow {
   position: absolute;
 }
+
 #banner .arrow_left {
   left: 10px;
 }
+
 #banner .arrow_right {
   right: 10px;
 }
+
 /* Gestion des points du carrousel */
 .dots {
   position: absolute;
   bottom: 40px;
   display: flex;
 }
+
 .dot {
   margin-inline: 5px;
   width: 13px;
@@ -229,9 +249,11 @@ header {
   border-radius: 100%;
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
 }
+
 .dot_selected {
   background-color: #fff;
 }
+
 /* Fin du code CSS pour le carousel */
 #banner p {
   font-family: "Roboto Slab", sans-serif;
@@ -242,18 +264,22 @@ header {
   text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
   text-align: center;
 }
+
 #banner span {
   display: block;
   font-weight: 400;
   font-size: 30px;
 }
+
 #about-us {
   display: flex;
 }
+
 #about-us article,
 #about-us aside {
   flex: 1;
 }
+
 #about-us li {
   background: url("./images/tricolor-icon.png") no-repeat left top;
   font-size: 16px;
@@ -268,28 +294,35 @@ header {
   align-items: flex-start;
   flex-direction: row-reverse;
 }
+
 #products div,
 #products aside {
   flex: 1;
 }
+
 #products div {
   padding: 0 6em;
 }
+
 #products h2 {
   margin-top: 0;
 }
+
 .bg-yellow {
   background-color: var(--third-color);
 }
+
 #question {
   display: flex;
   flex-direction: column;
   align-items: center;
   padding-block: 3em;
 }
+
 #question h2 {
   margin-bottom: 10px;
 }
+
 #question p {
   margin-bottom: 20px;
 }
@@ -299,15 +332,18 @@ header {
   flex-direction: column;
   text-align: center;
 }
+
 #why-us > div {
   display: flex;
   justify-content: space-evenly;
 }
+
 #why-us article {
   max-width: 320px;
   display: flex;
   flex-direction: column;
 }
+
 #why-us img {
   width: 33%;
   height: 150px;
@@ -320,9 +356,11 @@ header {
 .bg-lightblue {
   background-color: #e6f4fb;
 }
+
 #contact {
   margin-bottom: 0;
 }
+
 #contact article,
 #contact div {
   flex: 1;
@@ -345,9 +383,11 @@ header {
   padding-left: 1.5em;
   width: 200px;
 }
+
 .inline-icon {
   vertical-align: middle;
 }
+
 footer {
   background-color: #28363d;
   color: white;
@@ -357,14 +397,17 @@ footer {
   font-size: 12px;
   align-items: center;
 }
+
 footer div {
   position: relative;
 }
+
 .footer-logo {
   background-color: white;
   max-width: 308px;
   padding: 10px;
 }
+
 .footer-contact {
   margin-bottom: 1em;
   font-weight: 700;
