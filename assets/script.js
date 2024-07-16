@@ -29,3 +29,5 @@ const RightArrowClick = document.getElementById("flecheDeDroite");
 RightArrowClick.addEventListener("click", function () {
   alert("2e test !");
 });
+
+console.log(slides);
