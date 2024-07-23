@@ -237,8 +237,8 @@ header {
   transform: translate(500px);
 } */
 
-#flecheDeDroite:hover,
-#flecheDeGauche:hover {
+.flecheDeDroite:hover,
+.flecheDeGauche:hover {
   transform: scale(1.2);
   transition: all 300ms;
   cursor: pointer;
