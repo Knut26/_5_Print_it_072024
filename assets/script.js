@@ -44,39 +44,43 @@ const bannerImg = document.querySelectorAll(".banner-img");
 //-------------------------------------------------------------------
 flecheDeGauche.addEventListener("click", (e) => {
   let calcSlideImgPrecedente;
-  if (e.target.id === "flecheDeGauche") {
-    calcSlideImgPrecedente = 1;
-  } else {
+  if (e.target.id === "flecheGauche") {
     calcSlideImgPrecedente = -1;
+  } else {
+    calcSlideImgPrecedente = 1;
   }
-
   let slideActive = document.querySelector(".active");
-
-  let nouvelIndexFlecheDeGauche =
-    calcSlideImgPrecedente + [...slides].indexOf(slideActive);
-
-  if (nouvelIndexFlecheDeGauche < 0)
-    nouvelIndexFlecheDeGauche = [...slides].length - 1;
-  // slides[nouvelIndexFlecheDeGauche].classList.add("active");
-  slideActive.classList.remove("active");
+  if (slideActive) {
+    let nouvelIndexFlecheDeGauche =
+      [...slides].indexOf(slideActive) + calcSlideImgPrecedente;
+    if (nouvelIndexFlecheDeGauche < 0) {
+      nouvelIndexFlecheDeGauche = slides.length - 1;
+    }
+    slideActive.classList.remove("active");
+    slides[nouvelIndexFlecheDeGauche].classList.add("active");
+  } else {
+    console.error("Aucun élément actif trouvé.");
+  }
 });
-//-------------------------------------------------------------------
-flecheDeDroite.addEventListener("click", (a) => {
+
+flecheDeDroite.addEventListener("click", (e) => {
   let calcSlideImgSuivante;
-  if (a.target.id === "flecheDeDroite") {
+  if (e.target.id === "flecheDroite") {
     calcSlideImgSuivante = 1;
   } else {
     calcSlideImgSuivante = -1;
   }
-
   let slideActive = document.querySelector(".active");
-
-  let nouvelIndexFlecheDeDroite =
-    calcSlideImgSuivante - [...slides].indexOf(slideActive);
-
-  if (nouvelIndexFlecheDeDroite >= [...slides].length)
-    nouvelIndexFlecheDeDroite = 0;
-  // slides[nouvelIndexFlecheDeDroite].classList.add("active");
-  slideActive.classList.remove("active");
+  if (slideActive) {
+    let nouvelIndexFlecheDeDroite =
+      [...slides].indexOf(slideActive) + calcSlideImgSuivante;
+    if (nouvelIndexFlecheDeDroite >= slides.length) {
+      nouvelIndexFlecheDeDroite = 0;
+    }
+    slideActive.classList.remove("active");
+    slides[nouvelIndexFlecheDeDroite].classList.add("active");
+  } else {
+    console.error("Aucun élément actif trouvé.");
+  }
 });
 //-------------------------------------------------------------------
