@@ -93,3 +93,85 @@ flecheDeDroite.addEventListener("click", (e) => {
   }
 });
 //-------------------------------------------------------------------
+
+const nextButton = document.querySelector("flecheDeDroite");
+const prevButton = document.querySelector("flecheDeGauche");
+let currentIndex = 0;
+function updateCarousel() {
+  const carouselItems = document.querySelectorAll(".banner-img");
+  carouselItems.forEach((item, index) => {
+    item.classList.toggle("active", index === currentIndex);
+  });
+}
+
+nextButton.addEventListener("click", () => {
+  currentIndex = (currentIndex + 1) % slides.length;
+  let bannerImg = document.querySelector(currentIndex);
+  bannerImg.style.opacity = 1;
+  updateCarousel();
+});
+
+prevButton.addEventListener("click", () => {
+  currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+  updateCarousel();
+});
+//-------------------------------------------------------------------
+
+// slides.forEach(("./assets/images/slideshow/slide") => {
+//   const slide = document.createElement("slide");
+//   slide.src = "./assets/images/slideshow/";
+//   const td = document.createElement("td");
+//   td.appendChild([...slide]);
+//   const tr =
+//     banner.querySelector("tr") ||
+//     banner.appendChild(document.createElement("tr"));
+//   tr.appendChild(td);
+// });
+//
+//
+// inclure un nouveau doss dans le doss slides
+// let space = { name: "blabla" };
+
+// slides.push(space);
+// console.log(slides);
+//
+// récupère une image du HTML pour l'afficher via JS
+// const bannerImg = document.querySelector(".banner-img.active");
+// bannerImg.style.opacity = 1;
+//
+//affiche sur la console l'url de telle image
+// console.log(slides[0].url);
+
+//-------------------------------------------------------------------
+
+// HTML = document.addEventListener("DOMContentLoaded", () => {
+//   // Récupère le conteneur du carrousel
+//   const banner = document.querySelectorAll("#banner");
+
+//   // Crée une fonction pour afficher les images
+//   function displayImages() {
+//     slides.forEach((slide, index) => {
+//       const slideElement = document.createElement("div");
+//       slideElement.classList.add("carousel-item");
+//       slideElement.innerHTML = `
+//       <img src="${slide.url}" alt="${slide.name}">
+//       <p>${slide.tagLine}</p>
+//     `;
+
+//       // Ajoute la classe "active" au premier élément
+//       if (index === 0) {
+//         slideElement.classList.add("active");
+//       }
+
+//       // Ajoute l'élément au conteneur
+//       banner.appendChild(slideElement);
+//     });
+//   }
+
+//   // Appel de la fonction pour afficher les images
+//   displayImages();
+//
+//-------------------------------------------------------------------
+//
+// console.log(slides[2].url);
+//-------------------------------------------------------------------
