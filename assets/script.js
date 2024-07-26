@@ -1,12 +1,12 @@
 const slides = [
   {
-    name: "slide",
+    name: "slide active",
     image: "slide1.jpg",
     url: "./assets/images/slideshow/slide1.jpg",
     tagLine: "Impressions tous formats <span>en boutique et en ligne</span>",
   },
   {
-    name: "slide active",
+    name: "slide",
     image: "slide2.jpg",
     url: "./assets/images/slideshow/slide2.jpg",
     tagLine:
@@ -25,12 +25,17 @@ const slides = [
     tagLine: "Autocollants <span>avec découpe laser sur mesure</span>",
   },
 ];
+
 //-------------------------------------------------------------------
+
 const flecheDeGauche = document.getElementById("flecheDeGauche");
 const flecheDeDroite = document.getElementById("flecheDeDroite");
-const banner = document.querySelector("#banner");
+const banner = document.querySelector("banner");
 const bannerImg = document.querySelectorAll(".banner-img");
+// console.log(slides[1].url);
+
 //-------------------------------------------------------------------
+
 // slides.forEach(("./assets/images/slideshow/slide") => {
 //   const slide = document.createElement("slide");
 //   slide.src = "./assets/images/slideshow/";
@@ -41,7 +46,9 @@ const bannerImg = document.querySelectorAll(".banner-img");
 //     banner.appendChild(document.createElement("tr"));
 //   tr.appendChild(td);
 // });
+
 //-------------------------------------------------------------------
+
 flecheDeGauche.addEventListener("click", (e) => {
   let calcSlideImgPrecedente;
   if (e.target.id === "flecheGauche") {
@@ -62,6 +69,8 @@ flecheDeGauche.addEventListener("click", (e) => {
     console.error("Aucun élément actif trouvé.");
   }
 });
+
+//-------------------------------------------------------------------
 
 flecheDeDroite.addEventListener("click", (e) => {
   let calcSlideImgSuivante;
