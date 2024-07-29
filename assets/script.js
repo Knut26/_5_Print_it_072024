@@ -1,6 +1,6 @@
 const slides = [
   {
-    name: "slide active",
+    name: "slide",
     image: "slide1.jpg",
     url: "./assets/images/slideshow/slide1.jpg",
     tagLine: "Impressions tous formats <span>en boutique et en ligne</span>",
@@ -30,29 +30,34 @@ const slides = [
 
 const flecheDeGauche = document.getElementById("flecheDeGauche");
 const flecheDeDroite = document.getElementById("flecheDeDroite");
-const banner = document.querySelector("banner");
-const bannerImg = document.querySelectorAll(".banner-img");
+const banner = document.getElementById("banner");
+const dots = document.getElementById("dots");
+console.log(dots);
 // console.log(slides[1].url);
 
 slides.forEach((slide) => {
-  const p = document.createElement("p");
-  p.innerText = slides.url;
-
-  banner.appendChild(p);
+  const dot = document.createElement("span");
+  dot.classList.add("dot");
+  dots.appendChild(dot);
 });
 
-//-------------------------------------------------------------------
+function createImage(index) {
+  const img = document.createElement("img");
+  const p = document.createElement("p");
+  img.classList.add("banner-img");
+  img.classList.add("active");
+  img.setAttribute("src", slides[index].url);
+  p.innerHTML = slides[index].tagLine;
+  banner.appendChild(p);
+  banner.appendChild(img);
+}
 
-// slides.forEach(("./assets/images/slideshow/slide") => {
-//   const slide = document.createElement("slide");
-//   slide.src = "./assets/images/slideshow/";
-//   const td = document.createElement("td");
-//   td.appendChild([...slide]);
-//   const tr =
-//     banner.querySelector("tr") ||
-//     banner.appendChild(document.createElement("tr"));
-//   tr.appendChild(td);
-// });
+createImage(0);
+
+flecheDeDroite.addEventListener("click", (e) => {
+  e.preventDefault();
+  createImage(2);
+});
 
 //-------------------------------------------------------------------
 
