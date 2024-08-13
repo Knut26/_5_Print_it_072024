@@ -32,6 +32,7 @@ const flecheDeGauche = document.getElementById("flecheDeGauche");
 const flecheDeDroite = document.getElementById("flecheDeDroite");
 const banner = document.getElementById("banner");
 const dots = document.getElementById("dots");
+let currentIndex = 0;
 // console.log(dots);
 // console.log(slides[1].url);
 
@@ -56,7 +57,36 @@ createImage(0);
 
 flecheDeDroite.addEventListener("click", (e) => {
   e.preventDefault();
-  createImage(2);
+  createImage(1);
+  flecheDeDroite.addEventListener("click", (e) => {
+    e.preventDefault();
+    createImage(2);
+    flecheDeDroite.addEventListener("click", (e) => {
+      e.preventDefault();
+      createImage(3);
+      flecheDeDroite.addEventListener("click", (e) => {
+        e.preventDefault();
+        createImage(0);
+      });
+    });
+  });
+});
+
+flecheDeGauche.addEventListener("click", (e) => {
+  e.preventDefault();
+  createImage(3);
+  flecheDeGauche.addEventListener("click", (e) => {
+    e.preventDefault();
+    createImage(2);
+    flecheDeGauche.addEventListener("click", (e) => {
+      e.preventDefault();
+      createImage(1);
+      flecheDeGauche.addEventListener("click", (e) => {
+        e.preventDefault();
+        createImage(0);
+      });
+    });
+  });
 });
 
 // //--------ajout

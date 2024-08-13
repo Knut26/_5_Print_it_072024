@@ -224,6 +224,16 @@ header {
   transition: 300ms ease-in-out;
 }
 
+#flecheDeGauche {
+  position: absolute;
+  left: 100px;
+}
+
+#flecheDeDroite {
+  position: absolute;
+  right: 100px;
+}
+
 .banner-img.active {
   opacity: 1;
 }
@@ -240,6 +250,7 @@ header {
   right: 10px;
 }
 
+/* modif du survol des flèches du caroussel */
 #flecheDeDroite:hover,
 #flecheDeGauche:hover {
   transform: scale(1.2);
@@ -253,7 +264,8 @@ header {
 
 /* Gestion des points du carrousel */
 
-.dots {
+/* positionnement des dots  */
+#dots {
   position: absolute;
   bottom: 40px;
   display: flex;
