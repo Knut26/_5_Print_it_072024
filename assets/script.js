@@ -51,6 +51,40 @@ function createImage(index) {
   banner.appendChild(p);
   banner.appendChild(img);
 }
+// //--------ajout
+// function UpdateDots(index) {
+//   dots.forEach((dot, i) => {
+//     if (i === index) {
+//       dot.classList.add("dot_selected");
+//     } else {
+//       dot.classList.remove("dot_selected");
+//     }
+//   });
+// }
+
+// function updateImage(index, direction) {
+//   if (index === -1 && direction === "gauche") {
+//     index = slides.length - 1;
+//   } else if (index === slides.length && direction === "droite") {
+//     index = 0;
+//   }
+
+//   const directory = "./assets/images/slideshow/${slides[index].img}";
+//   bannerImg.src = directory;
+//   bannerImg.tagLine - "Slide {index + 1}";
+
+//   const tagLine = slides[index].tagLine;
+//   document.querySelector("p").innerHTML = tagLine;
+//   console.log("clique à droite ${direction}");
+// }
+
+// // flecheDeDroite.addEventListener("click", (e) => {
+// //   index = index + 1;
+// //   updateImage(index + 1);
+// //   UpdateDots(index);
+// // });
+
+// //--------fin ajout
 
 createImage(0);
 
