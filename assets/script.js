@@ -32,7 +32,7 @@ const flecheDeGauche = document.getElementById("flecheDeGauche");
 const flecheDeDroite = document.getElementById("flecheDeDroite");
 const banner = document.getElementById("banner");
 const dots = document.getElementById("dots");
-console.log(dots);
+// console.log(dots);
 // console.log(slides[1].url);
 
 slides.forEach((slide) => {
@@ -51,6 +51,14 @@ function createImage(index) {
   banner.appendChild(p);
   banner.appendChild(img);
 }
+
+createImage(0);
+
+flecheDeDroite.addEventListener("click", (e) => {
+  e.preventDefault();
+  createImage(2);
+});
+
 // //--------ajout
 // function UpdateDots(index) {
 //   dots.forEach((dot, i) => {
@@ -85,13 +93,6 @@ function createImage(index) {
 // // });
 
 // //--------fin ajout
-
-createImage(0);
-
-flecheDeDroite.addEventListener("click", (e) => {
-  e.preventDefault();
-  createImage(2);
-});
 
 //-------------------------------------------------------------------
 
