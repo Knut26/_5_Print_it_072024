@@ -1,73 +1,219 @@
-document.addEventListener("DOMContentLoaded", function () {
-  const slides = [
-    {
-      name: "slide",
-      image: "slide1.jpg",
-      url: "./assets/images/slideshow/slide1.jpg",
-      tagLine: "Impressions tous formats <span>en boutique et en ligne</span>",
-    },
-    {
-      name: "slide",
-      image: "slide2.jpg",
-      url: "./assets/images/slideshow/slide2.jpg",
-      tagLine:
-        "Tirages haute définition grand format <span>pour vos bureaux et events</span>",
-    },
-    {
-      name: "slide",
-      image: "slide3.jpg",
-      url: "./assets/images/slideshow/slide3.jpg",
-      tagLine: "Grand choix de couleurs <span>de CMJN aux pantones</span>",
-    },
-    {
-      name: "slide",
-      image: "slide4.png",
-      url: "./assets/images/slideshow/slide4.png",
-      tagLine: "Autocollants <span>avec découpe laser sur mesure</span>",
-    },
-  ];
+const slides = [
+  {
+    name: "slide",
+    name: "slide",
+    image: "slide1.jpg",
+    url: "./assets/images/slideshow/slide1.jpg",
+    tagLine: "Impressions tous formats <span>en boutique et en ligne</span>",
+  },
+  {
+    name: "slide",
+    image: "slide2.jpg",
+    url: "./assets/images/slideshow/slide2.jpg",
+    tagLine:
+      "Tirages haute définition grand format <span>pour vos bureaux et events</span>",
+  },
+  {
+    name: "slide",
+    image: "slide3.jpg",
+    url: "./assets/images/slideshow/slide3.jpg",
+    tagLine: "Grand choix de couleurs <span>de CMJN aux pantones</span>",
+  },
+  {
+    name: "slide",
+    image: "slide4.png",
+    url: "./assets/images/slideshow/slide4.png",
+    tagLine: "Autocollants <span>avec découpe laser sur mesure</span>",
+  },
+];
 
-  //-------------------------------------------------------------------
-  const bannerImg = document.getElementById("banner-img");
-  const flecheDeGauche = document.getElementById("flecheDeGauche");
-  const flecheDeDroite = document.getElementById("flecheDeDroite");
+const flecheDeGauche = document.getElementById("flecheDeGauche");
+const flecheDeDroite = document.getElementById("flecheDeDroite");
+const banner = document.getElementById("banner");
+let index = 0;
+let position = 0;
+createDots();
+updateDots();
+// console.log(slides[1].url);
+
+// creation d'autant de dots qu'il y a d'images
+function createDots() {
   const dots = document.getElementById("dots");
-  let currentIndex = 0;
-  // console.log(dots);
-  // console.log(slides[1].url);
-
-  function updateDots(index) {
-    dots.forEach((dot, i) => {
-      if (i === index) {
-        dot.classList.add("dot_selected");
-      } else {
-        dot.classList.remove("dot_selected");
-      }
-    });
+  for (let i = 0; i < slides.length; i++) {
+    const dot = document.createElement("div");
+    dot.setAttribute("class", "dot");
+    dots.appendChild(dot);
   }
+}
 
-  function updateImage(index, direction) {
-    if (currentIndex === -1 && direction === "left") {
-      currentIndex = slides.length - 1;
-    } else if (currentIndex === slides.length && direction === "right") {
-      currentIndex = 0;
+// ajoute ou enleve le dot_selected sur le dot
+function updateDots() {
+  const dotList = document.querySelectorAll(".dot");
+  for (let i = 0; i < dotList.length; i++) {
+    const dot = dotList[index];
+    if (index == position) {
+      dot.classList.add("dot_selected");
+    } else {
+      dot.classList.remove("dot_selected");
     }
   }
+}
 
-  let imagePath = `assets/images/slideshow/${slides[currentIndex].image}`;
-  bannerImg.src = imagePath;
-  bannerImg.alt = `Slide ${currentIndex + 1}`;
-
-  let tagLine = slides[currentIndex].tagLine;
-  document.querySelector("p").innerHTML = tagLine;
-  console.log(`clique sur ${direction}`);
-
-  flecheDeGauche.addEventListener("click", function () {
-    currentIndex = currentIndex - 1;
-    updateImage(currentIndex, "left");
-    updateDots(currentIndex);
+function afficherSlide() {
+  slides.forEach((slide, i) => {
+    if (slide) {
+      slide.style.display = i === index ? "block" : "none";
+    }
   });
+}
+
+flecheDeDroite.addEventListener("click", function () {
+  if (index === 3) {
+    index = slides.length + 1;
+  } else {
+    index++;
+  }
+  afficherSlide();
 });
+
+flecheDeGauche.addEventListener("click", function () {
+  if (index === 0) {
+    index = slides.length - 1;
+  } else {
+    index--;
+  }
+  afficherSlide();
+});
+
+//-------------------------------------------------------------------
+//   const p = document.createElement("p");
+//   p.innerText = slides.url;
+//   const dot = document.createElement("span");
+//   dot.classList.add("dot");
+//   dots.appendChild(dot);
+// });
+
+// function createImage(index) {
+//   const img = document.createElement("img");
+//   const p = document.createElement("p");
+//   img.classList.add("banner-img");
+//   img.classList.add("active");
+//   img.setAttribute("src", slides[index].url);
+//   p.innerHTML = slides[index].tagLine;
+//   banner.appendChild(p);
+// }
+// // banner.appendChild(img);
+
+// //-------------------------------------------------------------------
+// createImage(0);
+
+// flecheDeDroite.addEventListener("click", (e) => {
+//   e.preventDefault();
+//   createImage(2);
+// });
+
+// let position = 0;
+// const numberOfSlide = slides.length;
+
+// createCaroussel(position);
+// createDots();
+// updateDot();
+
+// const left = document.querySelector(".arrow_left");
+// const right = document.querySelector(".arrow_right");
+
+// left.addEventListener("click", function () {
+//   if (position == 0) {
+//     position = numberOfSlide - 1;
+//   } else {
+//     position--;
+//   }
+//   createCaroussel(position);
+// });
+
+// right.addEventListener("click", function () {
+//   if (position == numberOfSlide - 1) {
+//     position = 0;
+//   } else {
+//     position++;
+//   }
+//   createCaroussel(position);
+// });
+
+// function createDots() {
+//   const dots = document.querySelector(".dots");
+//   for (let index = 0; index < slides.length; index++) {
+//     // Pour chaque element dans la boucle je vais créer un dot
+//     const dot = document.createElement("div");
+//     dot.setAttribute("class", "dot");
+//     dots.appendChild(dot);
+//   }
+// }
+
+// function updateDot() {
+//   const listPoints = document.querySelectorAll(".dot");
+//   for (let index = 0; index < listPoints.length; index++) {
+//     const dot = listPoints[index];
+//     if (index == position) {
+//       dot.classList.add("dot_selected");
+//     } else {
+//       dot.classList.remove("dot_selected");
+//     }
+//   }
+// }
+
+// function createCaroussel(position) {
+//   const element = slides[position];
+//   const img = document.querySelector(".banner-img");
+//   img.setAttribute("src", "./assets/images/slideshow/" + element.image);
+
+//   const p = document.querySelector(".banner-txt");
+//   p.innerHTML = element.tagLine;
+
+//   updateDot();
+// }
+//-------------------------------------------------------------------
+//   const bannerImg = document.getElementById("banner-img");
+//   const flecheDeGauche = document.getElementById("flecheDeGauche");
+//   const flecheDeDroite = document.getElementById("flecheDeDroite");
+//   const dots = document.getElementById("dots");
+//   let currentIndex = 0;
+//   // console.log(dots);
+//   // console.log(slides[1].url);
+
+//   function updateDots(index) {
+//     dots.forEach((dot, i) => {
+//       if (i === index) {
+//         dot.classList.add("dot_selected");
+//       } else {
+//         dot.classList.remove("dot_selected");
+//       }
+//     });
+//   }
+
+//   function updateImage(index, direction) {
+//     if (currentIndex === -1 && direction === "left") {
+//       currentIndex = slides.length - 1;
+//     } else if (currentIndex === slides.length && direction === "right") {
+//       currentIndex = 0;
+//     }
+//   }
+
+//   // let imagePath = `assets/images/slideshow/${slides[currentIndex].image}`;
+//   // bannerImg.src = `slides${currentIndex}`.image;
+//   // bannerImg.alt = `Slide ${currentIndex + 1}`;
+
+//   let tagLine = slides[currentIndex].tagLine;
+//   document.querySelector("p").innerHTML = tagLine;
+//   // console.log(`clique sur ${direction}`);
+
+//   flecheDeGauche.addEventListener("click", function () {
+//     currentIndex = currentIndex - 1;
+//     updateImage(currentIndex, "left");
+//     updateDots(currentIndex);
+//   });
+// });
+//----------------------------------------------------
 
 // slides.forEach((slide) => {
 //   const dot = document.createElement("span");
