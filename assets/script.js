@@ -32,8 +32,6 @@ const flecheDeDroite = document.getElementById("flecheDeDroite");
 const banner = document.getElementById("banner");
 let index = 0;
 let position = 0;
-createDots();
-updateDots();
 // console.log(slides[1].url);
 
 // creation d'autant de dots qu'il y a d'images
@@ -44,28 +42,48 @@ function createDots() {
     dot.setAttribute("class", "dot");
     dots.appendChild(dot);
   }
-}
+};
 
 // ajoute ou enleve le dot_selected sur le dot
 function updateDots() {
-  const dotList = document.querySelectorAll(".dot");
-  for (let i = 0; i < dotList.length; i++) {
-    const dot = dotList[index];
+  const dotsList = document.querySelectorAll(".dot");
+  for (let i = 0; i < dotsList.length; i++) {
+    const dot = dotsList[index];
     if (index == position) {
       dot.classList.add("dot_selected");
     } else {
       dot.classList.remove("dot_selected");
     }
   }
-}
+};
 
-function afficherSlide() {
+// affichage de la 1ere photo au chargement de la page
+document.addEventListener('DOMContentLoaded', function() {
+  const createImage = document.getElementById("slide1");
+  createImage.src = "./assets/images/slideshow/slide1.jpg";
+  createImage.style.display = "block";
+});
+
+function updateImage(index) {
+  const img = document.createElement("img");
+  const p = document.createElement("p");
+  img.classList.add("banner-img");
+  img.classList.add("active");
+  img.setAttribute("src", slides[index].url);
+  p.innerHTML = slides[index].tagLine;
+  banner.appendChild(p);
+  banner.appendChild(img);
+
   slides.forEach((slide, i) => {
+    const img = document.createElement ("img");
+    img.getAttribute("src") = slide.url;
+    img.getAttribute("alt") = slide.name;
+    img.getAttribute("tagLine") = slide.tagLine;
     if (slide) {
-      slide.style.display = i === index ? "block" : "none";
+      slide.style.display = (i === index) ? "block" : "none";
     }
   });
-}
+};
 
 flecheDeDroite.addEventListener("click", function () {
   if (index === 3) {
@@ -73,7 +91,9 @@ flecheDeDroite.addEventListener("click", function () {
   } else {
     index++;
   }
-  afficherSlide();
+  updateImage(index);
+  createDots(index);
+  updateDots(index);
 });
 
 flecheDeGauche.addEventListener("click", function () {
@@ -82,7 +102,9 @@ flecheDeGauche.addEventListener("click", function () {
   } else {
     index--;
   }
-  afficherSlide();
+  updateImage(index);
+  createDots(index);
+  updateDots(index);
 });
 
 //-------------------------------------------------------------------
