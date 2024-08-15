@@ -26,86 +26,69 @@ const slides = [
     tagLine: "Autocollants <span>avec découpe laser sur mesure</span>",
   },
 ];
+//-------------------------------------------------------------------
 
 const flecheDeGauche = document.getElementById("flecheDeGauche");
 const flecheDeDroite = document.getElementById("flecheDeDroite");
 const banner = document.getElementById("banner");
+const dots = document.getElementById("dots");
 let index = 0;
-let position = 0;
+const photos = 4;
+console.log(dots);
 // console.log(slides[1].url);
 
-// creation d'autant de dots qu'il y a d'images
-function createDots() {
-  const dots = document.getElementById("dots");
-  for (let i = 0; i < slides.length; i++) {
-    const dot = document.createElement("div");
-    dot.setAttribute("class", "dot");
-    dots.appendChild(dot);
-  }
-};
-
-// ajoute ou enleve le dot_selected sur le dot
-function updateDots() {
-  const dotsList = document.querySelectorAll(".dot");
-  for (let i = 0; i < dotsList.length; i++) {
-    const dot = dotsList[index];
-    if (index == position) {
-      dot.classList.add("dot_selected");
-    } else {
-      dot.classList.remove("dot_selected");
-    }
-  }
-};
-
-// affichage de la 1ere photo au chargement de la page
-document.addEventListener('DOMContentLoaded', function() {
-  const createImage = document.getElementById("slide1");
-  createImage.src = "./assets/images/slideshow/slide1.jpg";
-  createImage.style.display = "block";
+// ajout des points
+slides.forEach((slide) => {
+  const p = document.createElement("p");
+  p.innerText = slides.url;
+  const dot = document.createElement("span");
+  dot.classList.add("dot");
+  dots.appendChild(dot);
 });
 
-function updateImage(index) {
+function createImage(index) {
   const img = document.createElement("img");
-  const p = document.createElement("p");
-  img.classList.add("banner-img");
-  img.classList.add("active");
   img.setAttribute("src", slides[index].url);
+  // img.setAttribute("tagLine", slides[index].tagLine);
+  banner.appendChild(img);
+  img.classList.add("banner");
+  img.classList.add("active");
+  const p = document.createElement("p");
   p.innerHTML = slides[index].tagLine;
   banner.appendChild(p);
-  banner.appendChild(img);
+}
+// bannerImg.appendChild(img);
+createImage(index);
 
-  slides.forEach((slide, i) => {
-    const img = document.createElement ("img");
-    img.getAttribute("src") = slide.url;
-    img.getAttribute("alt") = slide.name;
-    img.getAttribute("tagLine") = slide.tagLine;
-    if (slide) {
-      slide.style.display = (i === index) ? "block" : "none";
+flecheDeDroite.addEventListener("click", (e) => {
+  e.preventDefault();
+  if (index > photos)
+    for (let i = 0; i <= slides.length; i++) {
+      div = document.createElement("div");
+      div.className = "banner-img";
+      div.style.backgroundImage = "url('assets/images/slideshow/'+i+'.jpg')";
+      banner.appendChild(div);
+      //   if (index == ) {
+      //   dots.classList.add("dot_selected");
+      // } else {
+      //   dots.classList.remove("dot_selected");
+      //}
     }
-  });
-};
-
-flecheDeDroite.addEventListener("click", function () {
-  if (index === 3) {
-    index = slides.length + 1;
-  } else {
-    index++;
-  }
-  updateImage(index);
-  createDots(index);
-  updateDots(index);
+  createImage(index);
 });
 
-flecheDeGauche.addEventListener("click", function () {
-  if (index === 0) {
-    index = slides.length - 1;
-  } else {
-    index--;
-  }
-  updateImage(index);
-  createDots(index);
-  updateDots(index);
-});
+//-------------------------------------------------------------------
+
+// slides.forEach(("./assets/images/slideshow/slide") => {
+//   const slide = document.createElement("slide");
+//   slide.src = "./assets/images/slideshow/";
+//   const td = document.createElement("td");
+//   td.appendChild([...slide]);
+//   const tr =
+//     banner.querySelector("tr") ||
+//     banner.appendChild(document.createElement("tr"));
+//   tr.appendChild(td);
+// });
 
 //-------------------------------------------------------------------
 //   const p = document.createElement("p");
