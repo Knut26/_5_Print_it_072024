@@ -62,19 +62,19 @@ createImage(index);
 
 flecheDeDroite.addEventListener("click", (e) => {
   e.preventDefault();
-  if (index > photos)
-    for (let i = 0; i <= slides.length; i++) {
-      div = document.createElement("div");
-      div.className = "banner-img";
-      div.style.backgroundImage = "url('assets/images/slideshow/'+i+'.jpg')";
-      banner.appendChild(div);
-      //   if (index == ) {
-      //   dots.classList.add("dot_selected");
-      // } else {
-      //   dots.classList.remove("dot_selected");
-      //}
-    }
-  createImage(index);
+  if (index <= photos) {
+    div = document.createElement("div");
+    div.className = "slide";
+    div.classList.add("active");
+    div.style.backgroundImage = 'url("./assets/images/slideshow/"+".jpg")';
+    banner.appendChild(div);
+    //   if (index == ) {
+    //   dots.classList.add("dot_selected");
+    // } else {
+    //   dots.classList.remove("dot_selected");
+    //}
+    createImage(1);
+  }
 });
 
 //-------------------------------------------------------------------
