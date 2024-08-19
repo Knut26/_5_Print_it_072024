@@ -211,31 +211,40 @@ header {
   width: 100%;
   min-height: 470px;
   position: relative;
-  scroll-behavior: smooth;
+  overflow: hidden;
 }
 
-.banner-img {
+#slide1,
+#slide2,
+#slide3,
+#slide4 {
   position: absolute;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
+  z-index: 2;
   object-fit: cover;
   object-position: center;
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+  display: block;
   opacity: 0;
-  transition: 300ms ease-in-out;
+  transition: 1000ms;
 }
 
 #flecheDeGauche {
   position: absolute;
   left: 100px;
+  z-index: 3;
 }
 
 #flecheDeDroite {
   position: absolute;
   right: 100px;
+  z-index: 3;
 }
 
-.banner-img.active {
+/* laisse apparaître la slide1 au chargement
+de la page grace à la classe active */
+#banner img.active {
   opacity: 1;
 }
 
