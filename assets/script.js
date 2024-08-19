@@ -34,7 +34,7 @@ const banner = document.getElementById("banner");
 const dots = document.getElementById("dots");
 let index = 0;
 const photos = slides.length;
-console.log(dots);
+// console.log(dots);
 // console.log(slides[1].url);
 
 // ajout des points
