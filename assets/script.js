@@ -33,7 +33,7 @@ const flecheDeDroite = document.getElementById("flecheDeDroite");
 const banner = document.getElementById("banner");
 const dots = document.getElementById("dots");
 let index = 0;
-const photos = 4;
+const photos = slides.length;
 console.log(dots);
 // console.log(slides[1].url);
 
@@ -60,22 +60,45 @@ function createImage(index) {
 // bannerImg.appendChild(img);
 createImage(index);
 
+flecheDeGauche.addEventListener("click", (e) => {
+  e.preventDefault();
+  if ((index = 0)) {
+    position = 3;
+  } else {
+    position--;
+  }
+  createImage(index);
+});
+
 flecheDeDroite.addEventListener("click", (e) => {
   e.preventDefault();
-  if (index <= photos) {
-    div = document.createElement("div");
-    div.className = "slide";
-    div.classList.add("active");
-    div.style.backgroundImage = 'url("./assets/images/slideshow/"+".jpg")';
-    banner.appendChild(div);
-    //   if (index == ) {
-    //   dots.classList.add("dot_selected");
-    // } else {
-    //   dots.classList.remove("dot_selected");
-    //}
-    createImage(1);
+  if (index == photos - 1) {
+    position = 0;
+  } else {
+    position++;
   }
+  if ((index = 3)) {
+    position = 0;
+  }
+  if (index == photos) {
+    dots.classList.add("dot_selected");
+  } else {
+    dots.classList.remove("dot_selected");
+  }
+  createImage(index);
 });
+
+// if (index <= photos) {
+//   div = document.createElement("div");
+//   div.className = "slide";
+//   div.classList.add("active");
+//   div.style.backgroundImage = 'url("./assets/images/slideshow/"+".jpg")';
+//   banner.appendChild(div);
+//   if (index == ) {
+//   dots.classList.add("dot_selected");
+// } else {
+//   dots.classList.remove("dot_selected");
+//}
 
 //-------------------------------------------------------------------
 
