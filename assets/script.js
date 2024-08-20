@@ -31,13 +31,8 @@ const img = document.querySelectorAll("img");
 const btn = document.querySelectorAll(".btn");
 const slidesAll = document.querySelectorAll(".slide");
 const dots = document.getElementById("dots");
-// ajout de la const slideActive en dehors
-// de la fonction pour la MàJ des dots
 const slideActive = document.querySelector(".active");
-// fin de l'ajout de la const slideActive en dehors
-// de la fonction pour la MàJ des dots
-
-index = 0;
+const banner = document.getElementById("banner");
 
 btn.forEach((button) => {
   button.addEventListener("click", (e) => {
@@ -56,28 +51,23 @@ btn.forEach((button) => {
   });
 });
 
-// // ajout des points
-slidesAll.forEach((slide) => {
+// console.log(slides[1].url);
+// ajout des points
+slides.forEach((slide) => {
   const p = document.createElement("p");
-  p.innerText = [...slidesAll].src; //?
-  // p.innerText = slides.url;
-  // ajout des MàJ pour les dots
-  // if ((index = slideActive)) {
-  //   dot.classList.add("dot_selected");
-  // } else {
-  //   dot.classList.remove("dot_selected");
-  // }
-  // fin ajout des MàJ pour les dots
+  p.innerText = slides.url;
   const dot = document.createElement("span");
   dot.classList.add("dot");
   dots.appendChild(dot);
+  const tag = document.createElement("tag");
+  tag.innerHTML = slides[index].tagLine;
+  banner.appendChild(tag);
 });
 
-// const flecheDeGauche = document.getElementById("flecheDeGauche");
-// const flecheDeDroite = document.getElementById("flecheDeDroite");
-// const banner = document.getElementById("banner");
-// const dots = document.getElementById("dots");
-// let slideIndex = 0;
-// let intervalId = null;
-// const photos = document.querySelectorAll(".banner img");
+// dots qui disparaissent sur les autres slides
+// pas de tagLines
+//
+//
+//
+//
 // console.log(slides[1].url);
