@@ -33,7 +33,7 @@ const slidesAll = document.querySelectorAll(".slide");
 const dots = document.getElementById("dots");
 const slideActive = document.querySelector(".active");
 const banner = document.getElementById("banner");
-
+index = 0;
 btn.forEach((button) => {
   button.addEventListener("click", (e) => {
     const calcNextSlide = e.target.id === "flecheDeDroite" ? 1 : -1;
