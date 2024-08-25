@@ -80,7 +80,36 @@ buttons.forEach((button) => {
     const calcNextSlide = e.target.id === "flecheDeDroite" ? 1 : -1;
     const slideActive = document.querySelector(".active");
     newIndex = calcNextSlide + [...slides].indexOf(slideActive);
+    if (newIndex < 0) newIndex = [...slides].length - 1;
+    if (newIndex > [...slides].length) newIndex = 0;
     slideAll[newIndex].classList.add("active");
     slideActive.classList.remove("active");
+
+    const dot = document.createElement("span");
+    dot.classList.add("dot");
+    banner.appendChild(dot);
   });
 });
+
+// creation d'autant de dots qu'il y a d'images
+function createDots() {
+  const dots = document.getElementById("dots");
+  for (let i = 0; i < slides.length; i++) {
+    const dot = document.createElement("div");
+    dot.setAttribute("class", "dot");
+    dots.appendChild(dot);
+  }
+}
+
+// ajoute ou enleve le dot_selected sur le dot
+function updateDots() {
+  const dotsList = document.querySelectorAll(".dot");
+  for (let i = 0; i < dotsList.length; i++) {
+    const dot = dotsList[index];
+    if (index == position) {
+      dot.classList.add("dot_selected");
+    } else {
+      dot.classList.remove("dot_selected");
+    }
+  }
+}
