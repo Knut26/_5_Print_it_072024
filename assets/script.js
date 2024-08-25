@@ -85,9 +85,9 @@ buttons.forEach((button) => {
     slideAll[newIndex].classList.add("active");
     slideActive.classList.remove("active");
 
-    const dot = document.createElement("span");
-    dot.classList.add("dot");
-    banner.appendChild(dot);
+    // const dot = document.createElement("span");
+    // dot.classList.add("dot");
+    // banner.appendChild(dot);
   });
 });
 
@@ -100,16 +100,17 @@ function createDots() {
     dots.appendChild(dot);
   }
 }
-
-// ajoute ou enleve le dot_selected sur le dot
-function updateDots() {
-  const dotsList = document.querySelectorAll(".dot");
-  for (let i = 0; i < dotsList.length; i++) {
-    const dot = dotsList[index];
-    if (index == position) {
-      dot.classList.add("dot_selected");
-    } else {
-      dot.classList.remove("dot_selected");
-    }
-  }
-}
+console.log(createDots);
+createDots();
+// // ajoute ou enleve le dot_selected sur le dot
+// function updateDots() {
+//   const dotsList = document.querySelectorAll(".dot");
+//   for (let i = 0; i < dotsList.length; i++) {
+//     const dot = dotsList[index];
+//     if (index == position) {
+//       dot.classList.add("dot_selected");
+//     } else {
+//       dot.classList.remove("dot_selected");
+//     }
+//   }
+// }
