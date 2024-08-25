@@ -31,6 +31,7 @@ const img = document.querySelectorAll("img");
 const btn = document.querySelectorAll(".btn");
 const slidesAll = document.querySelectorAll(".slide");
 const dots = document.getElementById("dots");
+const banner = document.getElementById("banner");
 // ajout de la const slideActive en dehors
 // de la fonction pour la MàJ des dots
 const slideActive = document.querySelector(".active");
@@ -59,7 +60,9 @@ btn.forEach((button) => {
 // // ajout des points
 slidesAll.forEach((slide) => {
   const p = document.createElement("p");
-  p.innerText = [...slidesAll].src; //?
+  p.innerHTML = slides[1].tagLine; //?
+  banner.appendChild(p);
+
   // p.innerText = slides.url;
   // ajout des MàJ pour les dots
   // if ((index = slideActive)) {
