@@ -1,9 +1,10 @@
-/* variables déclarations */
+/* variables declaration */
 :root {
   --primary-color: #3396c0;
   --secondary-color: #cd006b;
   --third-color: #eee325;
 }
+
 /* Reset CSS */
 * {
   -webkit-box-sizing: border-box;
@@ -150,6 +151,7 @@ h3 {
   font-weight: 900;
   margin-block: 1em;
 }
+
 p,
 li {
   font-family: Roboto, sans-serif;
@@ -170,7 +172,9 @@ header {
   width: 260px;
   margin-block: 10px;
 }
+
 .btn {
+  background-color: var(--primary-color);
   padding: 16px 32px;
   margin-inline: 5px;
   border-radius: 5px;
@@ -180,59 +184,28 @@ header {
 .devis {
   background-color: var(--secondary-color);
 }
-/* Code CSS en prévision de l'ajout d'un carousel pour la bannière */
-/* Gestion des fleches du carrousel */
+
 #banner {
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: center;
   width: 100%;
   min-height: 470px;
   position: relative;
-  overflow: hidden;
 }
-
-#slide1,
-#slide2,
-#slide3,
-#slide4 {
+.banner-img {
   position: absolute;
-  z-index: 2;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
   object-fit: cover;
   object-position: center;
-  width: 100%;
-  height: 500px;
-  object-fit: cover;
-  display: block;
-  opacity: 0;
-  transition: 1000ms;
 }
+/* Code CSS en prévision de l'ajout d'un carousel pour la bannière */
+/* Gestion des fleches du carrousel */
 
-#flecheDeGauche {
-  position: absolute;
-  left: 100px;
-  z-index: 3;
-}
-
-#flecheDeDroite {
-  position: absolute;
-  right: 100px;
-  z-index: 3;
-}
-
-/* laisse apparaître la slide1 au chargement
-de la page grace à la classe active */
-#banner img.active {
-  opacity: 1;
-  overflow: hidden;
-}
-
-.tagLine.active {
-  opacity: 1;
-}
-
-.tagLine {
-  opacity: 0;
+#banner {
+  position: relative;
 }
 
 #banner .arrow {
@@ -247,27 +220,25 @@ de la page grace à la classe active */
   right: 10px;
 }
 
-p {
+#arrow_left {
   position: absolute;
-  left: 50%;
+  left: 60px;
 }
 
-/* modif du survol des flèches du caroussel */
-#flecheDeDroite:hover,
-#flecheDeGauche:hover {
+#arrow_right {
+  position: absolute;
+  right: 60px;
+}
+
+#arrow_left:hover,
+#arrow_right:hover {
   transform: scale(1.2);
-  transition: all 300ms;
+  transition: 300ms;
   cursor: pointer;
 }
 
-.banner-img {
-  width: 100%;
-}
-
 /* Gestion des points du carrousel */
-
-/* positionnement des dots  */
-#dots {
+.dots {
   position: absolute;
   bottom: 40px;
   display: flex;
@@ -297,22 +268,18 @@ p {
   text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
   text-align: center;
 }
-
 #banner span {
   display: block;
   font-weight: 400;
   font-size: 30px;
 }
-
 #about-us {
   display: flex;
 }
-
 #about-us article,
 #about-us aside {
   flex: 1;
 }
-
 #about-us li {
   background: url("./images/tricolor-icon.png") no-repeat left top;
   font-size: 16px;
@@ -327,35 +294,28 @@ p {
   align-items: flex-start;
   flex-direction: row-reverse;
 }
-
 #products div,
 #products aside {
   flex: 1;
 }
-
 #products div {
   padding: 0 6em;
 }
-
 #products h2 {
   margin-top: 0;
 }
-
 .bg-yellow {
   background-color: var(--third-color);
 }
-
 #question {
   display: flex;
   flex-direction: column;
   align-items: center;
   padding-block: 3em;
 }
-
 #question h2 {
   margin-bottom: 10px;
 }
-
 #question p {
   margin-bottom: 20px;
 }
@@ -365,18 +325,15 @@ p {
   flex-direction: column;
   text-align: center;
 }
-
 #why-us > div {
   display: flex;
   justify-content: space-evenly;
 }
-
 #why-us article {
   max-width: 320px;
   display: flex;
   flex-direction: column;
 }
-
 #why-us img {
   width: 33%;
   height: 150px;
@@ -389,11 +346,9 @@ p {
 .bg-lightblue {
   background-color: #e6f4fb;
 }
-
 #contact {
   margin-bottom: 0;
 }
-
 #contact article,
 #contact div {
   flex: 1;
@@ -416,11 +371,9 @@ p {
   padding-left: 1.5em;
   width: 200px;
 }
-
 .inline-icon {
   vertical-align: middle;
 }
-
 footer {
   background-color: #28363d;
   color: white;
@@ -430,17 +383,14 @@ footer {
   font-size: 12px;
   align-items: center;
 }
-
 footer div {
   position: relative;
 }
-
 .footer-logo {
   background-color: white;
   max-width: 308px;
   padding: 10px;
 }
-
 .footer-contact {
   margin-bottom: 1em;
   font-weight: 700;
