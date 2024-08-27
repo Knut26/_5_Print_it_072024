@@ -171,7 +171,6 @@ header {
   margin-block: 10px;
 }
 .btn {
-  background-color: var(--primary-color);
   padding: 16px 32px;
   margin-inline: 5px;
   border-radius: 5px;
@@ -225,6 +224,15 @@ header {
 de la page grace à la classe active */
 #banner img.active {
   opacity: 1;
+  overflow: hidden;
+}
+
+.tagLine.active {
+  opacity: 1;
+}
+
+.tagLine {
+  opacity: 0;
 }
 
 #banner .arrow {

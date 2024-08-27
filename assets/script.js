@@ -84,10 +84,8 @@ buttons.forEach((button) => {
     if (newIndex > [...slides].length) newIndex = 0;
     slideAll[newIndex].classList.add("active");
     slideActive.classList.remove("active");
-
-    // const dot = document.createElement("span");
-    // dot.classList.add("dot");
-    // banner.appendChild(dot);
+    console.log(calcNextSlide);
+    console.log(newIndex);
   });
 });
 
@@ -100,7 +98,6 @@ function createDots() {
     dots.appendChild(dot);
   }
 }
-console.log(createDots);
 createDots();
 // // ajoute ou enleve le dot_selected sur le dot
 // function updateDots() {
