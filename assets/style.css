@@ -200,6 +200,7 @@ header {
   z-index: -1;
   object-fit: cover;
   object-position: center;
+  transition: 0.5s ease;
 }
 /* Code CSS en prévision de l'ajout d'un carousel pour la bannière */
 /* Gestion des fleches du carrousel */
