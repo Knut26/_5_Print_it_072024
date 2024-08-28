@@ -1,23 +1,19 @@
 document.addEventListener("DOMContentLoaded", function () {
   const slides = [
     {
-      name: "slide1 active",
       image: "slide1.jpg",
       tagLine: "Impressions tous formats <span>en boutique et en ligne</span>",
     },
     {
-      name: "slide2",
       image: "slide2.jpg",
       tagLine:
         "Tirages haute définition grand format <span>pour vos bureaux et events</span>",
     },
     {
-      name: "slide3",
       image: "slide3.jpg",
       tagLine: "Grand choix de couleurs <span>de CMJN aux pantones</span>",
     },
     {
-      name: "slide4",
       image: "slide4.png",
       tagLine: "Autocollants <span>avec découpe laser sur mesure</span>",
     },
@@ -28,7 +24,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const right = document.getElementById("arrow-right"); // récupère l'élément de la flèche de droite par son Id
   const left = document.getElementById("arrow-left"); // récupère l'élément de la flèche de gauche par son Id
   let dots = document.querySelectorAll(".dot"); // récupère l'ensemble des éléments représentant les dots
-  const url = "./assets/images/slideshow/"; // définit le chemin de base pour les images
+  const url = "./assets/images/slideshow/"; // définit le chemin de base pour les slides
 
   function start(slide) {
     bannerImg.src = url + slides[slide].image; // màj de la source de l'image de la banner
@@ -79,6 +75,7 @@ document.addEventListener("DOMContentLoaded", function () {
       // si l'index est <= à la longueur totale du tableau...
       dots[index].classList.add("dot_selected"); // ... on ajoute la classe "dot_selected" au dot correspondant au slide affiché
       dots[index - 1].classList.remove("dot_selected"); // ... et on retire la classe "dot_selected" au dot du slide non affiché
+      ////////////////////////////////////////////////////////// comment enlever le premier dot ...?/////////////////////////////////////////////////////////////
     }
   });
 });
