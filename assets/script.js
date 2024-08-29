@@ -53,6 +53,10 @@ document.addEventListener("DOMContentLoaded", function () {
     tagline.innerHTML = slides[index].tagLine; // màj du texte de la banner
 
     if (index <= [...slides].length) {
+      if (index !== 0) {
+        // si l'index n'est pas la 1ère slide ...
+        dots[0].classList.remove("dot_selected"); // ... j'enlève le dot_selected du start(0)
+      }
       // si l'index est <= à la longueur totale du tableau...
       dots[index].classList.add("dot_selected"); // ... on ajoute la classe "dot_selected" au dot correspondant au slide affiché
       dots[index + 1].classList.remove("dot_selected"); // ... et on retire la classe "dot_selected" au dot du slide non affiché
