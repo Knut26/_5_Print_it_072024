@@ -65,6 +65,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   right.addEventListener("click", () => {
     // au click de la flèche droite on déclenche un évènement
+    dots[index].classList.remove("dot_selected");
     index++; // on incrémente de "1" l'index de la variable pour la slide affichée
     if (index >= [...slides].length) {
       // si l'index de la variable est >= à la longueur totale du tableau ...
@@ -72,15 +73,11 @@ document.addEventListener("DOMContentLoaded", function () {
       dots[3].classList.remove("dot_selected");
       // dots[(index = [...slides].length)].classList.remove("dot_selected");
     }
+    dots[index].classList.add("dot_selected"); // j'ajoute le dot sur l'index mis à jour
+
     bannerImg.src = url + slides[index].image;
     tagline.innerHTML = slides[index].tagLine;
-    if (index <= [...slides].length) {
-      // si l'index est <= à la longueur totale du tableau...
-      dots[index].classList.add("dot_selected"); // ... on ajoute la classe "dot_selected" au dot correspondant au slide affiché
-      if (index - 1 < slides.length) {
-        dots[index - 1].classList.remove("dot_selected"); // ... et on retire la classe "dot_selected" au dot du slide non affiché
-      }
-    }
+    // si l'index est <= à la longueur totale du tableau...
   });
 });
 //      console.log(nextSlide, [...slides].length); => 1 array
