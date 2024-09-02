@@ -77,7 +77,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     bannerImg.src = url + slides[index].image;
     tagline.innerHTML = slides[index].tagLine;
-    // si l'index est <= à la longueur totale du tableau...
   });
 });
 //      console.log(nextSlide, [...slides].length); => 1 array
