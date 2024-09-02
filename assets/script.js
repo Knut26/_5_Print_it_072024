@@ -65,11 +65,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
   right.addEventListener("click", () => {
     // au click de la flèche droite on déclenche un évènement
-    index++; // on incrémente de "1" l'index de la varibale pour la slide affichée
+    index++; // on incrémente de "1" l'index de la variable pour la slide affichée
     if (index >= [...slides].length) {
       // si l'index de la variable est >= à la longueur totale du tableau ...
       index = 0;
-      dots[3].classList.remove("dot_selected"); ////////////////////////////////////////////////////////// comment entrer la longueur du tableau de manière dynamique ...? ////////////////////////////////////////
+      dots[3].classList.remove("dot_selected");
       // dots[(index = [...slides].length)].classList.remove("dot_selected");
     }
     bannerImg.src = url + slides[index].image;
@@ -80,7 +80,6 @@ document.addEventListener("DOMContentLoaded", function () {
       if (index - 1 < slides.length) {
         dots[index - 1].classList.remove("dot_selected"); // ... et on retire la classe "dot_selected" au dot du slide non affiché
       }
-      ////////////////////////////////////////////////////////// comment enlever le premier dot ...?/////////////////////////////////////////////////////////////
     }
   });
 });
