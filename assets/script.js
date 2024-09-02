@@ -71,7 +71,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (index >= [...slides].length) {
       // si l'index de la variable est >= à la longueur totale du tableau ...
       index = 0;
-      dots[3].classList.remove("dot_selected"); ////////////////////////////////////////////////////////// comment entrer la longueur du tableau de manière dynamique ...? ////////////////////////////////////////
+      dots[3].classList.remove("dot_selected");
       // dots[(index = [...slides].length)].classList.remove("dot_selected");
     }
     bannerImg.src = url + slides[index].image;
@@ -83,63 +83,9 @@ document.addEventListener("DOMContentLoaded", function () {
       if (index - 1 > slides.length) {
         dots[index - 1].classList.remove("dot_selected"); // ... et on retire la classe "dot_selected" au dot du slide non affiché
       }
-      ////////////////////////////////////////////////////////// comment enlever le premier dot ...?/////////////////////////////////////////////////////////////
     }
   });
 });
-
-//      console.log(nextSlide, [...slides].length); => 1 array
-//      console.log(nextSlide, [...slides]); => 1 array de 4 données
-
-/*
-  let bannerImg = document.getElementById("banner-img");
-  let tagline = document.getElementById("tagline"); //
-  const right = document.getElementById("arrow-right");
-  const left = document.getElementById("arrow-left"); 
-  let dots = document.querySelectorAll(".dot");
-  const url = "./assets/images/slideshow/"; 
-  const buttons = document.querySelectorAll(".button");
-
-  function start(slide) {
-    bannerImg.src = url + slides[slide].image;
-    tagline.innerHTML = slides[slide].tagLine;
-    dots.forEach((dot, i) => {
-      if (i === slide) {
-        dot.classList.add("dot_selected"); 
-      } else {
-        dot.classList.remove("dot_selected"); 
-      }
-    });
-  }
-
-  start(0);
-
-  let currentIndex = 0;
-
-  buttons.forEach((button) => {
-    for (let i = 0; i <= [...slides].length; i++) {
-      button.addEventListener("click", (e) => {
-        let nextSlide = e.target.id === "arrow-right" ? +1 : -1;
-        bannerImg.src = url + slides[nextSlide].image;
-        tagline.innerHTML = slides[nextSlide].tagLine;
-
-        if (i > [...slides].length) {
-          i = 0;
-        }
-
-        if (i < [...slides].length) {
-          i = [...slides].length - 1;
-        }
-
-        if (i <= [...slides].length) {
-          dots[nextSlide].classList.add("dot_selected");
-          dots[currentIndex].classList.remove("dot_selected");
-        }
-      });
-    }
-  });
-});
-*/
 
 //      console.log(nextSlide, [...slides].length); => 1 array
 //      console.log(nextSlide, [...slides]); => 1 array de 4 données
