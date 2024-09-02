@@ -73,7 +73,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (index <= [...slides].length) {
       // si l'index est <= à la longueur totale du tableau...
       dots[index].classList.add("dot_selected"); // ... on ajoute la classe "dot_selected" au dot correspondant au slide affiché
-      if (index - 1 > slides.length) {
+      if (index - 1 < slides.length) {
         dots[index - 1].classList.remove("dot_selected"); // ... et on retire la classe "dot_selected" au dot du slide non affiché
       }
       ////////////////////////////////////////////////////////// comment enlever le premier dot ...?/////////////////////////////////////////////////////////////
