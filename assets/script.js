@@ -18,14 +18,12 @@ document.addEventListener("DOMContentLoaded", function () {
       tagLine: "Autocollants <span>avec découpe laser sur mesure</span>",
     },
   ];
-
   let bannerImg = document.getElementById("banner-img"); // récupère l'élément de l'image de la banner par son Id
   let tagline = document.getElementById("tagline"); // récupère l'élément du texte de la bannière par son Id
   const right = document.getElementById("arrow-right"); // récupère l'élément de la flèche de droite par son Id
   const left = document.getElementById("arrow-left"); // récupère l'élément de la flèche de gauche par son Id
   let dots = document.querySelectorAll(".dot"); // récupère l'ensemble des éléments représentant les dots
   const url = "./assets/images/slideshow/"; // définit le chemin de base pour les slides
-
   function start(slide) {
     bannerImg.src = url + slides[slide].image; // màj de la source de l'image de la banner
     tagline.innerHTML = slides[slide].tagLine; // màj du texte de la banner
@@ -37,11 +35,8 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
   }
-
   start(0); // initialisation du carrousel avec la première diapositive
-
   let index = 0; // création de la variable pour la slide de base
-
   left.addEventListener("click", () => {
     // au click de la flèche gauche on déclenche un évènement
     index--; // on décrémente de "1" l'index de la variable pour la slide affichée
@@ -51,7 +46,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
     bannerImg.src = url + slides[index].image; // màj de la source de l'image de la banner
     tagline.innerHTML = slides[index].tagLine; // màj du texte de la banner
-
     if (index <= [...slides].length) {
       if (index !== 0) {
         // si l'index n'est pas la 1ère slide ...
@@ -71,21 +65,20 @@ document.addEventListener("DOMContentLoaded", function () {
     if (index >= [...slides].length) {
       // si l'index de la variable est >= à la longueur totale du tableau ...
       index = 0;
-      dots[3].classList.remove("dot_selected");
+      dots[3].classList.remove("dot_selected"); ////////////////////////////////////////////////////////// comment entrer la longueur du tableau de manière dynamique ...? ////////////////////////////////////////
       // dots[(index = [...slides].length)].classList.remove("dot_selected");
     }
     bannerImg.src = url + slides[index].image;
     tagline.innerHTML = slides[index].tagLine;
-
     if (index <= [...slides].length) {
       // si l'index est <= à la longueur totale du tableau...
       dots[index].classList.add("dot_selected"); // ... on ajoute la classe "dot_selected" au dot correspondant au slide affiché
       if (index - 1 > slides.length) {
         dots[index - 1].classList.remove("dot_selected"); // ... et on retire la classe "dot_selected" au dot du slide non affiché
       }
+      ////////////////////////////////////////////////////////// comment enlever le premier dot ...?/////////////////////////////////////////////////////////////
     }
   });
 });
-
 //      console.log(nextSlide, [...slides].length); => 1 array
 //      console.log(nextSlide, [...slides]); => 1 array de 4 données

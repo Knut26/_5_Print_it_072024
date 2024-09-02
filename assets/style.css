@@ -210,6 +210,7 @@ header {
 }
 
 #banner .arrow {
+  /* en position absolute pour les passer devant les slides*/
   position: absolute;
 }
 
