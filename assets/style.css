@@ -232,8 +232,8 @@ header {
   right: 60px;
 }
 
-#arrow_left:hover,
-#arrow_right:hover {
+.arrow_left:hover,
+.arrow_right:hover {
   transform: scale(1.2);
   transition: 300ms;
   cursor: pointer;
